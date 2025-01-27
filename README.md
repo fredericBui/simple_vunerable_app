@@ -32,13 +32,23 @@ Avant de commencer, assurez-vous que vous avez les éléments suivants installé
    git clone https://github.com/fredericBui/simple_vunerable_app.git
    cd simple_vunerable_app
 
-2. Exécuter les scripts de migration :
+2. Modifier le mot de passe de l'utilisateur root de mysql
+```
+sudo mysql
+Alter user 'root'@'localhost' identified WITH mysql_native_password by 'root';
+flush privileges;
+exit;
+```
+
+3. Modifier le fichier .env avec vos credentials 
+
+4. Exécuter les scripts de migration :
 ```
 php migration.php
 php migration_user.php
 ```
 
-3. Créer un utilisateur administrateur dans votre base de donnée mysql :
+5. Créer un utilisateur administrateur dans votre base de donnée mysql :
 ```
 INSERT INTO users (username, password) VALUES ('votre_nom_utilisateur', 'votre_mot_de_passe');
 ```
