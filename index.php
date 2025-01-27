@@ -10,6 +10,5 @@ if (isset($_SESSION['user_id'])) {
 } else {
     echo "<h1>Veuillez vous connecter ou vous inscrire</h1>";
     echo "<a href='login.php'>Se connecter</a><br>";
-    echo "<a href='register.php'>S'inscrire</a>";
 }
 ?>
