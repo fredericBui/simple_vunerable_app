@@ -104,6 +104,7 @@ if (isset($_GET['modifier'])) {
         <input type="submit" value="Modifier">
     </form>
 <?php } ?>
+<button><a href='logout.php'>Se déconnecter</a></button>
 
 </body>
 </html>
