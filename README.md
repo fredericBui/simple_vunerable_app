@@ -53,3 +53,6 @@ php migration_user.php
 INSERT INTO users (username, password) VALUES ('votre_nom_utilisateur', 'votre_mot_de_passe');
 ```
 
+6. Déployer le site internet sur votre server web avec FTP dans le dossier /var/www/html/ si vous utiliser apache2
+
+Note : Changer temporairement les droits du dossier html ou modifier les privilèges de votre utilisateur
