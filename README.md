@@ -62,7 +62,9 @@ docker exec -it attacker bash
 List of attack :
 - MySQL injection
 - XSS injection
+- CSRF
 - Discover services on the network
 
 List of defenses :
 - Prepare request
+- Escaping specials characters
