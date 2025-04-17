@@ -68,3 +68,4 @@ List of attack :
 List of defenses :
 - Prepare request
 - Escaping specials characters
+- CSRF token
