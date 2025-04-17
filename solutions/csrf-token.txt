@@ -1,0 +1,16 @@
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// Vérification du token CSRF
+function verifierCSRFToken($token) {
+    return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+}
+
+if (!verifierCSRFToken($_POST['csrf_token'])) {
+    die('Erreur : Token CSRF invalide.');
+}
+
+<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+<a href="?supprimer=<?php echo $row['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>">Supprimer</a>
+
