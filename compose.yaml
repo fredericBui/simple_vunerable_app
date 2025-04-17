@@ -1,0 +1,26 @@
+services:
+  app:
+    container_name: vulnerable_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+  db:
+    container_name: vulnerable_db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clients_db
+    ports:
+      - "3306:3306"
+  attacker:
+    container_name: attacker
+    image: kalilinux/kali-rolling
+    tty: true
+    stdin_open: true
+    depends_on:
+      - app
+      - db

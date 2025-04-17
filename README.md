@@ -32,27 +32,26 @@ Avant de commencer, assurez-vous que vous avez les éléments suivants installé
    git clone https://github.com/fredericBui/simple_vunerable_app.git
    cd simple_vunerable_app
 
-2. Modifier le mot de passe de l'utilisateur root de mysql
-```
-sudo mysql
-Alter user 'root'@'localhost' identified WITH mysql_native_password by 'root';
-flush privileges;
-exit;
-```
+2. Modifier le fichier .env avec vos credentials 
 
-3. Modifier le fichier .env avec vos credentials 
-
-4. Exécuter les scripts de migration :
+3. Exécuter les scripts de migration :
 ```
 php migration.php
 php migration_user.php
 ```
 
-5. Créer un utilisateur administrateur dans votre base de donnée mysql :
+4. Créer un utilisateur administrateur dans votre base de donnée mysql :
 ```
+mysql -u root -p
+use clients_db;
 INSERT INTO users (username, password) VALUES ('votre_nom_utilisateur', 'votre_mot_de_passe');
 ```
 
-6. Déployer le site internet sur votre server web avec FTP dans le dossier /var/www/html/ si vous utiliser apache2
+## With Docker
+```
+docker compose up
 
-Note : Changer temporairement les droits du dossier html ou modifier les privilèges de votre utilisateur
+docker exec -it vulnerable_app php migration.php
+docker exec -it vulnerable_app php migration_user.php
+docker exec -it vulnerable_app php migration_create_a_user.php
+```

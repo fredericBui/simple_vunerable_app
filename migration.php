@@ -27,9 +27,9 @@ if ($conn->connect_error) {
 $dbname = $envVars['DB_NAME'];
 $query = "CREATE DATABASE IF NOT EXISTS $dbname";
 if ($conn->query($query) === TRUE) {
-    echo "Base de données créée avec succès ou déjà existante.<br>";
+    echo "Base de données créée avec succès ou déjà existante.\n";
 } else {
-    echo "Erreur lors de la création de la base de données : " . $conn->error . "<br>";
+    echo "Erreur lors de la création de la base de données : " . $conn->error . "\n";
 }
 
 // Sélectionner la base de données
@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS clients (
 )";
 
 if ($conn->query($query) === TRUE) {
-    echo "Table des clients créée avec succès.<br>";
+    echo "Table des clients créée avec succès.\n";
 } else {
-    echo "Erreur lors de la création de la table : " . $conn->error . "<br>";
+    echo "Erreur lors de la création de la table : " . $conn->error . "\n";
 }
 
 // Fermer la connexion
