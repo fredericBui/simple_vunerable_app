@@ -52,8 +52,6 @@ INSERT INTO users (username, password) VALUES ('votre_nom_utilisateur', 'votre_m
 docker compose up
 
 docker exec -it vulnerable_app php migration.php
-docker exec -it vulnerable_app php migration_user.php
-docker exec -it vulnerable_app php migration_create_a_user.php
 ```
 
 You can attack directly with your machine or the attacker container
@@ -62,6 +60,9 @@ docker exec -it attacker bash
 ```
 
 List of attack :
-- XSS injection
 - MySQL injection
+- XSS injection
 - Discover services on the network
+
+List of defenses :
+- Prepare request

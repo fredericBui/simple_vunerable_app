@@ -50,6 +50,29 @@ if ($conn->query($query) === TRUE) {
     echo "Erreur lors de la création de la table : " . $conn->error . "\n";
 }
 
+// Créer la table des utilisateurs
+$query = "
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+)";
+if ($conn->query($query) === TRUE) {
+    echo "Table des utilisateurs créée avec succès.\n";
+} else {
+    echo "Erreur lors de la création de la table des utilisateurs : " . $conn->error . "\n";
+}
+
+// Créer la table des clients
+$query = "INSERT INTO users (username, password) VALUES ('" . $envVars['SUPER_USER'] . "', '" . $envVars['SUPER_USER_PSW'] . "');";
+
+if ($conn->query($query) === TRUE) {
+    echo "Utilisateur créé avec succès.\n";
+} else {
+    echo "Erreur lors de la création de la table : " . $conn->error . "\n";
+}
+
+
 // Fermer la connexion
 $conn->close();
 ?>
