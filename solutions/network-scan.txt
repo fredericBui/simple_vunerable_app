@@ -1,0 +1,3 @@
+hostname -I
+nmap <ip_adress_got>/24
+nmap -sV <ip_adress_got>/24
