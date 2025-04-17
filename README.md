@@ -52,6 +52,7 @@ INSERT INTO users (username, password) VALUES ('votre_nom_utilisateur', 'votre_m
 docker compose up
 
 docker exec -it vulnerable_app php migration.php
+docker exec -it vulnerable_app service ssh restart
 ```
 
 You can attack directly with your machine or the attacker container
@@ -63,9 +64,12 @@ List of attack :
 - MySQL injection
 - XSS injection
 - CSRF
+- Bruteforce
+- DDOS
 - Discover services on the network
 
 List of defenses :
 - Prepare request
 - Escaping specials characters
 - CSRF token
+- IPS & Firewall
